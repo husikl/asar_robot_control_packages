@@ -1,0 +1,9 @@
+# goal
+geometry_msgs/Pose target_pose
+---
+# result
+sensor_msgs/JointState joint_sol
+bool succeed
+---
+# feedback
+# sensor_msgs/JointState joint_step

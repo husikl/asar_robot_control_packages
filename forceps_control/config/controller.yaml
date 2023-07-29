@@ -1,0 +1,25 @@
+--- #Publish all joint states ----------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 500
+
+#Position Controller
+effort_controller:
+  type: "effort_controllers/JointGroupPositionController"
+  # type: "effort_controllers/JointGroupEffortController"
+  joints:
+    - joint_f0_pitch
+    - joint_f1_finger_left
+    - joint_f2_finger_right
+  joint_f0_pitch:
+    # pid: { p: -0.0, i: -0.0, d: -0.0, i_clamp_min: -8.0, i_clamp_max: 8.0 }
+    pid: { p: -12.0, i: -0.0, d: -0.414, i_clamp_min: -8.0, i_clamp_max: 8.0 }
+    #pid: { p: -20.0, i: -0.0, d: -0.287, i_clamp_min: -8.0, i_clamp_max: 8.0 }
+  joint_f1_finger_left:
+    # pid: { p: -0.0, i: 0.0, d: -0.0, i_clamp_min: -10.0, i_clamp_max: 10.0 }
+    pid: { p: -15.0, i: 0.0, d: -0.276, i_clamp_min: -10.0, i_clamp_max: 10.0 }
+    #pid: { p: -28.8, i: -0.0, d: -0.374, i_clamp_min: -10.0, i_clamp_max: 10.0 }
+  joint_f2_finger_right:
+    # pid: { p: -0.0, i: 0.0, d: -0.0, i_clamp_min: -10.0, i_clamp_max: 10.0 }
+    pid: { p: -12.0, i: 0.0, d: -0.22, i_clamp_min: -10.0, i_clamp_max: 10.0 }
+    #pid: { p: -14.4, i: -0.0, d: -0.306, i_clamp_min: -10.0, i_clamp_max: 10.0 }

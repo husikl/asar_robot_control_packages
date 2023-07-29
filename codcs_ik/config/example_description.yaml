@@ -1,0 +1,14 @@
+CODCSSampleDescription:
+  solvers: ["tp", "nlo:ipopt"]
+  constraints: ["joint_limits", "joint_speed"]
+  tasks:
+    - "rcm"
+    - "tip_tracking"
+  rcm:
+    priority: 1
+    type: "operational"
+    subtype: "cart_vel_translation"
+  tip_tracking:
+    priority: 2
+    type: "operational"
+    subtype: "cart_vel_pose"
