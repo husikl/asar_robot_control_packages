@@ -1,0 +1,9 @@
+<launch>
+
+    <arg name="daq_freq" default="500" />
+    <param name = "daq_freq" value="$(arg daq_freq)"/>
+
+    <node name="mc_daq_haptic" pkg="mc_daq_ros" type="mc_daq_haptic" output="screen" />
+    <!-- <node name="usb1608_node" pkg="mc_daq_ros" type="usb1608_node" output="screen" /> -->
+
+</launch>

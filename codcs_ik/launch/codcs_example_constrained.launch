@@ -1,0 +1,43 @@
+<launch>
+
+    <!-- Options: tracik, kdl, codcs_tp, codcs_nlo, codcs -->
+    <arg name="ik_solver" default="codcs"/>
+
+    <param name="ik_solver" value="$(arg ik_solver)" type="str"/>
+    <param name="cycle_t_ns" value="8000000"/>
+
+    <param name="max_iter" value="10000"/>
+    <param name="max_time" value="0.005"/>
+    <param name="max_error" value="0.0001"/>
+    <!-- Bitwise mask for printing [CODCS, TRACIK, KDL] -->
+    <param name="print_all" value="0"/>
+
+    <param name="delta_integration" value="1.0"/>
+    <param name="n_random_config" value="100"/>
+
+    <param name="constrained_control" value="false"/>
+
+    <!-- Only if constrained_control = 1 -->
+    <param name="rcm_is_cost" value="true"/>
+    <!-- [0] Pinv IK [1] Optim IK-->
+    <param name="ik_method" value="1"/>
+    <!-- ["ma27, ma57, ma77, ma86, ma97"] -->
+    <param name="nlp_linear_solver" value="ma57"/>
+    <!-- ["log6", "log3", "only_p"] -->
+    <param name="error_method" value="log6"/>
+    <param name="mu0" value="1.0"/>
+    <param name="mu1" value="0.005"/>
+    <param name="mu2" value="0.001"/>
+    <param name="mu3" value="1000.0"/>
+    <param name="max_joint_speed" value="40.0"/>
+    <param name="rcm_error_max" value="2.5e-5"/>
+
+
+    <!-- <param name="robot_description" textfile="$(find denso_arm_control)/urdf/vs050_r.urdf"/> -->
+    <!-- <rosparam file="$(find denso_arm_control)/config/robot_config.yaml" command="load"/> -->
+
+    <node name="example_constrained" pkg="codcs_ik" type="example_constrained" output="screen" />
+    <!-- <node name="benchmark_test" pkg="codcs_ik" type="benchmark_test" output="screen" /> -->
+
+
+</launch>

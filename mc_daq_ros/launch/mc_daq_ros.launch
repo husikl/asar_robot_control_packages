@@ -1,0 +1,11 @@
+<launch>
+
+    <arg name="daq_freq" default="500" />
+    <param name = "daq_freq" value="$(arg daq_freq)"/>
+    <param name = "daq_ai" value="true"/>
+    <param name = "daq_dio" value="true"/>
+
+    <node name="mc_daq_node" pkg="mc_daq_ros" type="mc_daq_node" output="screen" />
+    <!-- <node name="usb1608_node" pkg="mc_daq_ros" type="usb1608" output="screen" /> -->
+
+</launch>

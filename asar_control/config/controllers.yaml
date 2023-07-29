@@ -1,0 +1,29 @@
+--- #Publish all joint states ----------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 250
+
+#Position Controller
+position_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6
+    - joint_7
+
+forceps_position_controller:
+  type: "effort_controllers/JointGroupPositionController"
+  joints:
+    - joint_f0_pitch
+    - joint_f1_finger_left
+    - joint_f2_finger_right
+  joint_f0_pitch:
+    pid: { p: -12.0, i: 0.0, d: 0.0 }
+  joint_f1_finger_left:
+    pid: { p: -12.0, i: 0.0, d: 0.0 }
+  joint_f2_finger_right:
+    pid: { p: -12.0, i: 0.0, d: 0.0 }
